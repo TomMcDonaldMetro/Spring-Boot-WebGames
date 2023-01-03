@@ -6,7 +6,9 @@
 
 <body>
 
-<h1>Confirmed student ${student.firstName}</h1>
+${user.username}
+<br><br>
+${user.password}
 
 </body>
 

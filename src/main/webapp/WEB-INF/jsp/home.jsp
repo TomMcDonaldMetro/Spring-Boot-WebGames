@@ -8,7 +8,8 @@
 
 <h1>Hello World</h1>
 
-<a href="student/form">form</a>
+<a href="login">login</a>
+<a href="signup">signup</a>
 </body>
 
 </html>

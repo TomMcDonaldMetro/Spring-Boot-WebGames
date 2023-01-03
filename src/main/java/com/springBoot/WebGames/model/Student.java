@@ -1,4 +1,4 @@
-package com.springDemoRest.RESTfulDemo.model;
+package com.springBoot.WebGames.model;
 
 public class Student {
 
