@@ -1,9 +1,12 @@
 package com.springBoot.WebGames.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springBoot.WebGames.model.User;
 
@@ -30,18 +33,23 @@ public class FormController {
 
 		return "signup-form";
 	}
+	
+	
 
 	@RequestMapping("/processLoginForm")
-	public String processLogin(@ModelAttribute("user") User user) {
-
+	public String processLogin(HttpServletRequest request, @ModelAttribute("user") User user) {
+		System.out.println(user.getFirstName() + " " + user.getFirstName());
+		request.getSession(true).setAttribute("user", user);
 		return "confirmation-login";
 
 	}
 
 	@RequestMapping("/processSignupForm")
-	public String processSignup(@ModelAttribute("user") User user) {
-
-		return "confirmation-signup";
+	public String processSignup(HttpServletRequest request, @ModelAttribute("user") User user) {
+		
+		System.out.println(user.getFirstName());
+		request.getSession(true).setAttribute("user", user);
+		return "redirect:/home";
 
 	}
 
