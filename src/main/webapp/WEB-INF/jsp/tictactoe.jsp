@@ -25,7 +25,7 @@
 			
 		
 		</c:forEach>
-	<button type="submit" name="newGame">New Game</button>
+	<button type="submit" name="newGame" value="true">New Game</button>
 	</div>
 		
 	
