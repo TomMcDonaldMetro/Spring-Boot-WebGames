@@ -6,6 +6,7 @@
 <html>
 <head>
 	<title>Main Menu</title>
+	<%@ include file="header.jsp" %>
 </head>
 
 <body>
@@ -18,6 +19,10 @@
 <br><br>
 <a href="menu">Games menu</a>
 <br><br>
+
+
+
+<%@ include file="footer.jsp" %>
 </body>
 
 </html>
