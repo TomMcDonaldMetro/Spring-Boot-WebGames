@@ -10,6 +10,14 @@ import com.springBoot.WebGames.model.User;
 
 @Controller
 public class HomeController {
+	
+	@RequestMapping("/")
+	public String redirectHome() {
+		
+		return "redirect:home";
+	}
+	
+	
 	@RequestMapping("/home")
 	public String mainMenu(HttpServletRequest request, Model model) {
 		try {
