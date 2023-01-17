@@ -99,3 +99,15 @@ table, th, td {
 	color: white;
 	text-align: center;
 }
+
+table.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.center {
+	text-align: center;
+	margin-right: 35%;
+	margin-left: 35%;
+	margin-bottom: 15%;
+}
