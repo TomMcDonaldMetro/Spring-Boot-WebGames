@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import com.springBoot.WebGames.model.Reversi.Marker;
+
 
 public class Reversi {
 
@@ -60,6 +62,7 @@ public class Reversi {
 		grid[35] = Marker.BLACK;
 		grid[27] = Marker.WHITE;
 		grid[36] = Marker.WHITE;
+	
 		playing = true;
 	}
 
@@ -279,6 +282,11 @@ public class Reversi {
 		boolean playerHasEnd = false;
 
 		while (grid[loc + step] != null && grid[loc + step] != player) {
+			// if it is the right edge, moving forward in 1 or 9 steps would be illegal.
+			if ((loc + 1) % 8 == 0 && (step == 1 || step == 9)) {
+				sequence.clear();
+				return sequence; // it's an edge break out can't go any farther
+			}
 			// always check if its about to go out of range.
 			if (!(loc + step * 2 > 63) && (grid[loc + step * 2] != null || grid[loc + step * 2] == player)) {
 				sequence.add(loc + step);
@@ -289,10 +297,7 @@ public class Reversi {
 			} else {
 				break;
 			}
-			if ((loc + 1) % 8 == 0 && (step == 1 || step == 9)) {
-				sequence.clear();
-				return sequence; // it's an edge break out can't go any farther
-			}
+			
 		}
 		if (playerHasEnd == false) { // moves collect but if White places a tile and there isn't another white piece
 										// on the other end clear
@@ -323,6 +328,11 @@ public class Reversi {
 
 		boolean playerHasEnd = false;
 		while (grid[loc - step] != null && grid[loc - step] != player) {
+			// if it is the left edge, don't look for these steps
+			if (loc % 8 == 0 && (step == 1 || step == 9)) {
+				sequence.clear();
+				return sequence; // only make legal edge moves
+			}
 			// check if it would be out of range or invalid before continuing.
 			if (!(loc - step * 2 < 0) && (grid[loc - step * 2] != null || grid[loc - step * 2] == player)) {
 				sequence.add(loc - step);
@@ -333,10 +343,7 @@ public class Reversi {
 			} else {
 				break;
 			}
-			if (loc % 8 == 0 && (step == 1 || step == 9)) {
-				sequence.clear();
-				return sequence; // only make legal edge moves
-			}
+			
 		}
 		if (playerHasEnd == false) {
 			sequence.clear();

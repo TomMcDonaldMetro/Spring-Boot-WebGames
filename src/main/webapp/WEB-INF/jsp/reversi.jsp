@@ -60,7 +60,7 @@
 		<h1>Reversi</h1>
 		<form action="<c:url value='reversi'/>" method="get">
 			<div>
-				<table border="1" style="background-color: Green;" class="game_table">
+				<table style="background-color: Green;" class="game_table">
 					<tr>
 						<th></th>
 						<th>a</th>

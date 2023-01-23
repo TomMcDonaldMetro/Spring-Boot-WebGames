@@ -106,8 +106,7 @@ table.center {
 }
 
 .center {
+	width: 400px;
+	margin: 30px auto;
 	text-align: center;
-	margin-right: 35%;
-	margin-left: 35%;
-	margin-bottom: 15%;
 }

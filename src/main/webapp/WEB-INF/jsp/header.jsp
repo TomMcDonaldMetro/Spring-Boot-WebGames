@@ -62,12 +62,13 @@ body {
 </style>
 <div class="header">
 	  <a href="${pageContext.request.contextPath}/home" class="logo">Web Games</a>
+	  
 	  <div class="header-right">
 	    <a class="active" href="${pageContext.request.contextPath}/home">Home</a>
 	    <a href="${pageContext.request.contextPath}/menu">Games</a>
 	    <a href="#about">About</a>
-	    <a href="${pageContext.request.contextPath}/login">Sign In</a>
-  </div>
+	    <a href="${pageContext.request.contextPath}/login">Log In</a>
+  	</div>
 </div>
 </html>
 </head>
