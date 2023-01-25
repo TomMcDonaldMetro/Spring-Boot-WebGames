@@ -67,8 +67,8 @@ body {
 
 	<div class="header-right">
 		<a class="active" href="${pageContext.request.contextPath}/home">Home</a>
-		<a href="${pageContext.request.contextPath}/menu">Games</a> <a
-			href="#about">About</a>
+		<a href="${pageContext.request.contextPath}/menu">Games</a> 
+		<a href="#about">About</a>
 		<c:choose>
 			<c:when test="${empty name || name eq 'Anonymous'}">
 				<a href="${pageContext.request.contextPath}/login">Log In</a>
@@ -81,6 +81,7 @@ body {
 
 	</div>
 </div>
+
 
 </head>
 
