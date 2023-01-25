@@ -70,7 +70,7 @@ body {
 		<a href="${pageContext.request.contextPath}/menu">Games</a> <a
 			href="#about">About</a>
 		<c:choose>
-			<c:when test="${empty name}">
+			<c:when test="${empty name || name eq 'Anonymous'}">
 				<a href="${pageContext.request.contextPath}/login">Log In</a>
 			</c:when>
 			<c:when test="${not empty name}">

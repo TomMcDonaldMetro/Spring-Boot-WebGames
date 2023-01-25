@@ -17,7 +17,10 @@
 	<div class="center">
 		<h2 style="color: #01B0F1;">Log In</h2>
 
-
+		<c:if test="${param.error != null}">
+			<i style="color:red">invalid username or email try user:password</i>
+		</c:if>
+			
 		<form:form action="${pageContext.request.contextPath }/authenticateTheUser" method="POST">
 			<!-- Email input -->
 			<div class="form-outline mb-4">
@@ -33,12 +36,6 @@
 					for="password_label"></label>
 			</div>
 			
-			<!-- Error box 
-			<div>
-				<label>invalid username or email</label>
-				
-			</div>
-			-->
 			
 			<!-- 2 column grid layout for inline styling -->
 			<div class="row mb-4">

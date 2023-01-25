@@ -12,16 +12,8 @@
 
 <body>
 
-<h1>Hello <c:out default="World." value="${name}"/></h1>
-<form:form action="${pageContext.request.contextPath}/logout" method="POST">
-				<input type="submit" value="logout"/>
-		</form:form>
-<a href="login">login</a>
-<br><br>
-<a href="signup">signup</a>
-<br><br>
-<a href="menu">Games menu</a>
-<br><br>
+<h1 style="text-align:center">Hello <c:out default="World." value="${name}"/></h1>
+
 
 
 
