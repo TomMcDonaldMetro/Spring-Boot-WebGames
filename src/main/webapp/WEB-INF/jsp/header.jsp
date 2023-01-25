@@ -4,6 +4,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="<c:url value="/css/styles.css" />" />
+<script defer src="/javascript/active.js"></script>
 <style>
 * {
 	box-sizing: border-box;
@@ -60,28 +61,39 @@ body {
 		float: none;
 	}
 }
+
+.nav li {
+	display: inline;
+	list-style: none;
+}
 </style>
 <div class="header">
 	<a href="${pageContext.request.contextPath}/home" class="logo">Web
 		Games</a>
 
-	<div class="header-right">
-		<a class="active" href="${pageContext.request.contextPath}/home">Home</a>
-		<a href="${pageContext.request.contextPath}/menu">Games</a> 
-		<a href="#about">About</a>
-		<c:choose>
-			<c:when test="${empty name || name eq 'Anonymous'}">
-				<a href="${pageContext.request.contextPath}/login">Log In</a>
-			</c:when>
-			<c:when test="${not empty name}">
-				<a href="/processLogout">logout</a>
+	<nav class="header-right">
+		<ul class="nav">
+			<li><a 
+				href="${pageContext.request.contextPath}/home">Home</a></li>
+			<li><a href="${pageContext.request.contextPath}/menu">Games</a>
 
-			</c:when>
-		</c:choose>
+			</li>
+			<li><a href="/about">About</a></li>
 
-	</div>
+			<c:choose>
+				<c:when test="${empty name || name eq 'Anonymous'}">
+
+					<li><a href="${pageContext.request.contextPath}/login">Log
+							In</a></li>
+				</c:when>
+				<c:when test="${not empty name}">
+
+					<li><a href="/processLogout">logout</a></li>
+				</c:when>
+			</c:choose>
+		</ul>
+	</nav>
 </div>
 
 
 </head>
-
