@@ -13,15 +13,22 @@ import com.springBoot.WebGames.model.User;
 @Controller
 public class FormController {
 
+//	@RequestMapping("/login")
+//	public String showForm(Model theModel) {
+//		// create student object
+//		User user = new User();
+//
+//		// add student object to the model
+//		theModel.addAttribute("user", user);
+//
+//		return "login-form";
+//	}
+	
 	@RequestMapping("/login")
-	public String showForm(Model theModel) {
-		// create student object
-		User user = new User();
-
-		// add student object to the model
-		theModel.addAttribute("user", user);
-
-		return "login-form";
+	public String showLogin(HttpServletRequest request) {
+		String logout = request.getParameter("logout");
+		String login = logout == null ? "login-form" : "home";
+		return login;
 	}
 
 	@RequestMapping("/signup")
@@ -51,6 +58,11 @@ public class FormController {
 		request.getSession(true).setAttribute("user", user);
 		return "redirect:/home";
 
+	}
+	
+	@RequestMapping("/processLogout")
+	public String processLogout() {
+		return "processLogout";
 	}
 
 }

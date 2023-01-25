@@ -1,12 +1,11 @@
 package com.springBoot.WebGames.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.springBoot.WebGames.model.User;
 
 @Controller
 public class HomeController {
@@ -19,14 +18,9 @@ public class HomeController {
 	
 	
 	@RequestMapping("/home")
-	public String mainMenu(HttpServletRequest request, Model model) {
-		try {
-			System.out.println(((User)request.getSession().getAttribute("user")).getFirstName());
-		} catch(Exception e) {
-			
-		} finally {
-			
-		}
+	public String mainMenu(Principal principal, HttpSession session) {
+		String name = principal != null ? principal.getName() : "Anonymous";
+		session.setAttribute("name", name);
 		return "home";
 	}
 }

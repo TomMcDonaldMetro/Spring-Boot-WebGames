@@ -18,7 +18,7 @@
 		<h2 style="color: #01B0F1;">Log In</h2>
 
 
-		<form:form action="" method="POST">
+		<form:form action="${pageContext.request.contextPath }/authenticateTheUser" method="POST">
 			<!-- Email input -->
 			<div class="form-outline mb-4">
 				<input type="text" id="username" name="username"
