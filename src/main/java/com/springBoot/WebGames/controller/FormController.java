@@ -7,8 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.springBoot.WebGames.model.User;
-
 @Controller
 public class FormController {
 	
@@ -20,11 +18,8 @@ public class FormController {
 	}
 
 	@RequestMapping("/signup")
-	public String showSignupForm(Model theModel) {
-		// create user object
-		User user = new User();
-		// add student object to the model
-		theModel.addAttribute("user", user);
+	public String showSignupForm() {
+		
 
 		return "signup-form";
 	}
