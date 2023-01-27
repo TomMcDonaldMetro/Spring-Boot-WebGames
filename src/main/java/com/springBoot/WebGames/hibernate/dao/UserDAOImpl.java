@@ -44,6 +44,16 @@ public class UserDAOImpl implements UserDAO {
 		
 		return user;
 	}
+	
+	@Override
+	public User findByUsername(String username) {
+		
+		Session currentSession = entityManager.unwrap(Session.class);
+		Query query = currentSession.createQuery("from User w where w.username = :username");
+		query.setParameter("username", username);
+		
+		return (User) query.list().get(0);
+	}
 
 	@Override
 	public void save(User user) {
@@ -63,5 +73,7 @@ public class UserDAOImpl implements UserDAO {
 		query.setParameter("id",  id);
 		query.executeUpdate();
 	}
+
+	
 
 }

@@ -2,13 +2,19 @@ package com.springBoot.WebGames.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.springBoot.WebGames.hibernate.dao.UserDAO;
+import com.springBoot.WebGames.hibernate.entity.User;
+
 @Controller
 public class FormController {
+
+	@Autowired private UserDAO dao;
 	
 	@RequestMapping("/login")
 	public String showLogin(HttpServletRequest request) {
@@ -18,28 +24,39 @@ public class FormController {
 	}
 
 	@RequestMapping("/signup")
-	public String showSignupForm() {
+	public String showSignupForm(Model model) {
 		
+		User user = new User();
+		model.addAttribute("user", user);
 
 		return "signup-form";
 	}
-	
-	
-
-	@RequestMapping("/processLoginForm")
-	public String processLogin(HttpServletRequest request, @ModelAttribute("user") User user) {
-		System.out.println(user.getFirstName() + " " + user.getFirstName());
-		request.getSession(true).setAttribute("user", user);
-		return "confirmation-login";
-
-	}
 
 	@RequestMapping("/processSignupForm")
-	public String processSignup(HttpServletRequest request, @ModelAttribute("user") User user) {
+	public String processSignup(@ModelAttribute("user") User user, Model model) {
 		
-		System.out.println(user.getFirstName());
-		request.getSession(true).setAttribute("user", user);
-		return "redirect:/home";
+		System.out.println(user.getId());
+		
+		try {
+			// check to see if username is already taken.
+			User temp = dao.findByUsername(user.getUsername());
+			System.out.println(temp.getFirstName());
+			if(temp.getUsername().equals(user.getUsername())) {
+				System.out.println("name already taken");
+				model.addAttribute("error", "Username already taken.");
+				return "signup-form";
+			}
+			// if it has been taken send an error
+			
+			// if it is available, save and continue.
+			dao.save(user);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return "home";
 
 	}
 	

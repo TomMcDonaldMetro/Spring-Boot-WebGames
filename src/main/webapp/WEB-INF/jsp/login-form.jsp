@@ -8,8 +8,6 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-
-
 </head>
 
 <body>
@@ -18,7 +16,7 @@
 		<h2 style="color: #01B0F1;">Log In</h2>
 
 		<c:if test="${param.error != null}">
-			<i style="color:red">invalid username or email try user:password</i>
+			<i style="color:red">invalid username or email try user:password</i>		
 		</c:if>
 			
 		<form:form action="${pageContext.request.contextPath }/authenticateTheUser" method="POST">
@@ -26,16 +24,14 @@
 			<div class="form-outline mb-4">
 				<input type="text" id="username" name="username"
 					class="form-control" placeholder="Username"/><label class="form-label"
-					for="email_label"></label>
+					for="email_label" ></label>
 			</div>
-			
 			<!-- Password input -->
 			<div class="form-outline mb-4">
 				<input type="password" id="password" name="password"
 					class="form-control" placeholder="Password"/> <label class="form-label"
 					for="password_label"></label>
 			</div>
-			
 			
 			<!-- 2 column grid layout for inline styling -->
 			<div class="row mb-4">

@@ -10,6 +10,8 @@ public interface UserDAO {
 	
 	public User findById(int id);
 	
+	public User findByUsername(String username);
+	
 	public void save(User user);
 	
 	//public void editUser(User user);
