@@ -51,8 +51,14 @@ public class UserDAOImpl implements UserDAO {
 		Session currentSession = entityManager.unwrap(Session.class);
 		Query query = currentSession.createQuery("from User w where w.username = :username");
 		query.setParameter("username", username);
-		
-		return (User) query.list().get(0);
+		List list = query.list();
+		User user = null;
+		try {
+			 user = (User) list.get(0);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return user;
 	}
 
 	@Override
