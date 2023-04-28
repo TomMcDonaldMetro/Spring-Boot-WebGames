@@ -78,6 +78,7 @@ body {
 			<li><a href="${pageContext.request.contextPath}/menu">Games</a>
 
 			</li>
+			<li><a href="/weather">Weather</a></li>
 			<li><a href="/about">About</a></li>
 
 			<c:choose>
