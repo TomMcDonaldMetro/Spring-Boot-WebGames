@@ -16,7 +16,7 @@
 		<h2 style="color: #01B0F1;">Log In</h2>
 
 		<c:if test="${param.error != null}">
-			<i style="color:red">invalid username or email try user:password</i>		
+			<i style="color:red">invalid username or password.</i>		
 		</c:if>
 			
 		<form:form action="${pageContext.request.contextPath }/authenticateTheUser" method="POST">
